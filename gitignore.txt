@@ -1,2 +1,3 @@
 ir_assignment.ipynb
 *.csv
+.ipynb_checkpoints
