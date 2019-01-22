@@ -2,3 +2,4 @@ ir_assignment.ipynb
 *.csv
 .ipynb_checkpoints
 devstuffs.ipynb
+*.txt
