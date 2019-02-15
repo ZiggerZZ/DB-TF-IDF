@@ -45,11 +45,16 @@ for line in sys.stdin:
             term_list.append((current_term, current_term_count))
             current_term = term
             current_term_count = count
+    
     else:
+        term_list.append((current_term, current_term_count))
+        current_term = term
+        current_term_count = count
+            
         if current_file:
             # write result to STDOUT
-            for term,current_term_count in term_list:
-                print ('%s\t%s' % (term+'_'+current_file, str(current_doc_count)+'_'+(str(current_term_count))))
+            for t,ct in term_list:
+                print ('%s\t%s' % (t+'_'+current_file, str(current_doc_count)+'_'+(str(ct))))
                 
         current_doc_count = count
         current_term_count = count
@@ -57,9 +62,9 @@ for line in sys.stdin:
         current_term = term
         term_list = []   
 
-if (current_file == file):
-    for term,current_term_count in term_list: 
-        print ('%s\t%s' % (term+'_'+current_file, str(current_doc_count)+'_'+(str(current_term_count))))
+for t,ct in term_list:
+    print ('%s\t%s' % (t+'_'+current_file, str(current_doc_count)+'_'+(str(ct))))
+                
 
     
     
