@@ -9,6 +9,8 @@
 
 
 import sys
+#import subprocess
+#subprocess.call('dir', shell=True)
 
 current_file = None
 current_term = None
@@ -18,7 +20,9 @@ current_doc_count = 0
 pair = None
 
 
+
 for line in sys.stdin:
+    
     
     line = line.strip()
     pair, count = line.split('\t', 1)
@@ -54,4 +58,6 @@ for line in sys.stdin:
 if (current_file == file and current_term == term):
     for term,current_term_count in term_list: 
         print ('%s\t%s' % (term+'_'+file, str(current_doc_count)+'_'+(str(current_term_count))))
+
+    
     
