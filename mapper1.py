@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 
 ## Job1: simple wordcount on term-document tuples to compute tf
