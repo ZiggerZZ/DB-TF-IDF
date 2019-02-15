@@ -27,7 +27,7 @@ for line in sys.stdin:
     line = line.strip()
     pair, count = line.split('\t', 1)
     
-    file, term = pair.split('_', 1)
+    term,file = pair.split('_', 1)
  
     # convert count (currently a string) to int
     try:
@@ -38,18 +38,18 @@ for line in sys.stdin:
         continue
  
     if current_file == file:
-        current_doc_count += count
+        
         if current_term == term:
             current_term_count += count
         else:
-            term_list.append((term, current_term_count))
+            term_list.append((current_term, current_term_count))
             current_term = term
             current_term_count = count
     else:
         if current_file:
             # write result to STDOUT
             for term,current_term_count in term_list:
-                print ('%s\t%s' % (term+'_'+file, str(current_doc_count)+'_'+(str(current_term_count))))
+                print ('%s\t%s' % (term+'_'+current_file, str(current_doc_count)+'_'+(str(current_term_count))))
                 
         current_doc_count = count
         current_term_count = count
@@ -57,9 +57,9 @@ for line in sys.stdin:
         current_term = term
         term_list = []   
 
-if (current_file == file and current_term == term):
+if (current_file == file):
     for term,current_term_count in term_list: 
-        print ('%s\t%s' % (term+'_'+file, str(current_doc_count)+'_'+(str(current_term_count))))
+        print ('%s\t%s' % (term+'_'+current_file, str(current_doc_count)+'_'+(str(current_term_count))))
 
     
     
