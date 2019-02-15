@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 
 ## Job3: compute tf-idfs
@@ -33,4 +33,4 @@ for line in sys.stdin:
     idf = math.log(10000/(1+d))
     tfidf = tf * idf
     
-    print('%s\t%s' % (pair, tfidf))
+    print '%s\t%s' % (pair, tfidf)

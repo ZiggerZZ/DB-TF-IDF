@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 
 ###########################################  reducer3.py
@@ -12,4 +12,4 @@ import sys
 
 
 for line in sys.stdin:
-    print (line)
+    print line
