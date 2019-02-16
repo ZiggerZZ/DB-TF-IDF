@@ -36,7 +36,7 @@ for line in sys.stdin:
     else:
         if current_term:
             for document,N,n in doc_list:
-                print '%s\t%s' % (current_term + '_' + document, str(N)+'_' + str(n) + '_' + str(current_count)
+                print ('%s\t%s' % (current_term + '_' + document, str(N)+'_' + str(n) + '_' + str(current_count)))
             doc_list = []   
             n_list = []
             
@@ -48,4 +48,4 @@ for line in sys.stdin:
 
 if current_term == term:
     for document,N,n in doc_list:
-        print '%s\t%s' % (current_term + '_' + document, str(N)+'_' + str(n) + '_' + str(current_count)
+        print ('%s\t%s' % (current_term + '_' + document, str(N)+'_' + str(n) + '_' + str(current_count)))

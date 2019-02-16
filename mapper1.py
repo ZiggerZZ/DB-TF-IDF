@@ -28,4 +28,4 @@ for line in sys.stdin:
     
     for term in terms:
         term = term.strip('''!()-[]{};:'"\,<>./?@#$%^&*_~''').lower()
-        print ('%s\t%s' % (term + '_' + docname, 1))
+        print ('%s\t%s' % (docname + '_' + term, 1))

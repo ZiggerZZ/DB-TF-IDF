@@ -16,7 +16,7 @@ import math
 for line in sys.stdin:
     
     pair,vals = line.split('\t',1)
-    N,n,d = rest.split('_',2)
+    N,n,d = vals.split('_',2)
     
     try:
         N = int(N)
@@ -33,4 +33,4 @@ for line in sys.stdin:
     idf = math.log(10000/(1+d))
     tfidf = tf * idf
     
-    print '%s\t%s' % (pair, tfidf)
+    print ('%s\t%s' % (pair, tfidf))

@@ -24,6 +24,6 @@ for line in sys.stdin:
     except ValueError:
         continue
     
-    print '%s\t%s' % (term, docname + '_'+str(N) + '_' + str(n) + '_' + str(1))
+    print ('%s\t%s' % (term, docname + '_'+str(N) + '_' + str(n) + '_' + str(1)))
         
         
