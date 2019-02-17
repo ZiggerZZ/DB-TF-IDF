@@ -21,8 +21,8 @@ for line in sys.stdin:
     line = line.strip()
     terms = line.split(" ")
     
-    #path = os.environ['mapreduce_map_input_file'].split("/")
-    path = "C:/Users/dorar_000/Documents/GitHub/DB-TF-IDF/data/Aladdin.txt".split('/')
+    path = os.environ['mapreduce_map_input_file'].split("/")
+    #path = "C:/Users/dorar_000/Documents/GitHub/DB-TF-IDF/data/Aladdin.txt".split('/')
     
     docname = path[-1]
     
