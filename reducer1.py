@@ -18,11 +18,7 @@ term_list = []
 current_term_count = 0
 pair = None
 
-
-
-for line in sys.stdin:
-    
-    
+for line in sys.stdin: 
     line = line.strip()
     pair, count = line.split('\t', 1)
     
@@ -62,7 +58,7 @@ if term_list:
     for t,ct in term_list:
         print ('%s\t%s' % (t+'_'+current_file, str(len(term_list)+1)+'_'+(str(ct))))
 
-print ('%s\t%s' % (current_term+'_'+current_file, str(len(term_list)+1)+'_'+ str(current_term_count)  ))
+print('%s\t%s' % (current_term+'_'+current_file, str(len(term_list)+1)+'_'+ str(current_term_count)  ))
                 
 
     
