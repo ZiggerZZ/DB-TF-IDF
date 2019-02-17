@@ -1,10 +1,4 @@
 #!/usr/bin/python
-"""Job2: append document frequency d to term_doc pairs
-### Map
-# Input:  ((term,docname), (N,n))
-# Output: (term, (docname,N,n,1))
-mapper2.py
-"""
 import sys
 for line in sys.stdin:
     pair, vals = line.split('\t')
