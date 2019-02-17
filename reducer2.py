@@ -1,10 +1,4 @@
 #!/usr/bin/python
-"""Job2: append document frequency d to term_doc pairs
-### Reduce
-# Input:  (term, (docname,N,n,1))
-# Output:  ((term,docname), (N,n,d))
-mapper2.py
-"""
 import sys
 current_term = None
 doc_list = []
