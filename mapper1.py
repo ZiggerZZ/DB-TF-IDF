@@ -1,26 +1,19 @@
 #!/usr/bin/python
-
-
-## Job1: simple wordcount on term-document tuples to compute tf
-
-### Map
-# Input: (docname, contents):
-# Output: ((docname,term), 1)
-
-
-###########################################  mapper1.py
-
 import os
 import sys
-### D = ?????
-
+# D = ?????
 for line in sys.stdin:
     line = line.strip()
     terms = line.split(" ")
-    #path = os.environ['mapreduce_map_input_file'].split("/")
-    #path = "C:/Users/dorar_000/Documents/GitHub/DB-TF-IDF/data/Aladdin.txt".split('/')
-    path = "/Users/robertaconrad/Documents/07_Ecole_Polytechnique_Studienunterlagen/Data_Base_Management/DB-TF-IDF/data/Aladdin.txt".split('/')
+    # path = os.environ['mapreduce_map_input_file'].split("/")
+    # path = "C:/Users/dorar_000/Documents/
+    # GitHub/DB-TF-IDF/data/Aladdin.txt".split('/')
+    path = '''/Users/robertaconrad/Documents/
+                07_Ecole_Polytechnique_Studienunterlagen/
+                Data_Base_Management/DB-TF-IDF/data/Aladdin.txt'''.split(
+        '/')
     docname = path[-1]
     for term in terms:
-        term = term.strip('''!()-[]{};:'"\,<>./?@#$%^&*_~''').lower()
-        print ('%s\t%s' % (docname + '_' + term, 1))
+        # term = term.strip('''!()-[]{};:'"\,<>./?@#$%^&*_~''').lower()
+        term = term.strip('''!()-[]{};:'",<>./?@#$%^&*_~''').lower()
+        print('%s\t%s' % (docname + '_' + term, 1))
