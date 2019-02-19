@@ -1,3 +1,5 @@
+import math
+
 def word_freq(doc):
     lines = doc.lower().split('\n')
     words = []
@@ -14,8 +16,8 @@ def word_freq(doc):
     return wordfreq
 
 
-words = d.flatMap(lambda s: s.lower().split()).map(
-    lambda w: ''.join(x for x in w if x.isalpha()))
+#words = d.flatMap(lambda s: s.lower().split()).map(
+#    lambda w: ''.join(x for x in w if x.isalpha()))
 
 
 def word_to_key(x):
@@ -26,7 +28,7 @@ def word_to_key(x):
     return l
 
 
-corpus = sc.wholeTextFiles('texts/*.txt')
+corpus = sc.wholeTextFiles('/user/hadoop/tfidf/texts/*')
 num_docs = corpus.count()
 
 tf = corpus.map(lambda x: (x[0].split('/')[-1],
