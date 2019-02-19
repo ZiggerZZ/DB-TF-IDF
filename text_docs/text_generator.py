@@ -4,7 +4,7 @@ import random
 corpus_length = len(brown.words())
 
 
-def create_docs(number_of_words_per_doc=200, num_doc=10,startnr = 0):
+def create_docs(number_of_words_per_doc=200, num_doc=10, startnr=0):
     # control number of words per doc
     # and number of documents
     # we fix the line length at 20
