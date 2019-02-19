@@ -2,6 +2,7 @@
 from nltk.corpus import brown
 import random
 corpus_length = len(brown.words())
+hardcopy = brown.words()
 
 
 def create_docs(number_of_words_per_doc=200, num_doc=10, startnr=0):
@@ -14,12 +15,14 @@ def create_docs(number_of_words_per_doc=200, num_doc=10, startnr=0):
     for i in range(0, num_doc):
         # create new file with writing + permission
         new_file = open("textdoc"+str(number_of_words_per_doc) +
-                        "words" + str(i + startnr)+".txt", "w+")
+                        "words" + str(i+startnr)+".txt", "w+")
         for line in range(0, number_of_lines):
-            index = random.randint(1, corpus_length)
-            words = brown.words()[index: index+line_length]
-            sentence = ' '.join(word for word in words)
-            new_file.write(sentence + "\n")
+            words = list(map(
+                lambda x: hardcopy[x:x+line_length], random.sample(range(corpus_length), lines)))
+            sentences = list(
+                map(lambda x: ' '.join(word for word in x), words))
+            text = ''.join(map(str, sentences))
+            new_file.write(text + "\n")
         new_file.close()
         if (i % 10 == 0):
             print("You created "+str(i)+" files! "+str(num_doc-i)+" left")
