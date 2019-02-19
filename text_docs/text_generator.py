@@ -18,7 +18,7 @@ def create_docs(number_of_words_per_doc=200, num_doc=10, startnr=0):
                         "words" + str(i+startnr)+".txt", "w+")
         for line in range(0, number_of_lines):
             words = list(map(
-                lambda x: hardcopy[x:x+line_length], random.sample(range(corpus_length), lines)))
+                lambda x: hardcopy[x:x+line_length], random.sample(range(corpus_length), line_length)))
             sentences = list(
                 map(lambda x: ' '.join(word for word in x), words))
             text = ''.join(map(str, sentences))
