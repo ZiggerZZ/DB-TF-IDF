@@ -1,4 +1,12 @@
+# instructions
+# run cluster sudo /mnt/config/cluster/connect.sh
+# set python3 as default sudo sed -i -e '$a\export PYSPARK_PYTHON=/usr/bin/python3' /etc/spark/conf/spark-env.sh
+# create texts/ folder with some txt documents mkdir texts/
+# create hdfs folder tfidf hdfs dfs -mkdir /user/hadoop/tfidf/
+# put the files from text to hdfs: hdfs dfs -put texts /user/hadoop/tfidf
+
 import math
+
 
 def word_freq(doc):
     lines = doc.lower().split('\n')
@@ -14,10 +22,6 @@ def word_freq(doc):
     freqs = [w/N for w in occurrences]
     wordfreq = set(zip(words, freqs))
     return wordfreq
-
-
-#words = d.flatMap(lambda s: s.lower().split()).map(
-#    lambda w: ''.join(x for x in w if x.isalpha()))
 
 
 def word_to_key(x):
