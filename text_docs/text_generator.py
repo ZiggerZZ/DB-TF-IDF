@@ -21,5 +21,5 @@ def create_docs(number_of_words_per_doc=200, num_doc=10, startnr=0):
             sentence = ' '.join(word for word in words)
             new_file.write(sentence + "\n")
         new_file.close()
-        if (i%10==0):
-            print("You created "+i+" files! "+num_doc-i+" left")
+        if (i % 10 == 0):
+            print("You created "+str(i)+" files! "+str(num_doc-i)+" left")
