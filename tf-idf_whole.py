@@ -6,7 +6,7 @@
 # put the files from text to hdfs: hdfs dfs -put texts /user/hadoop/tfidf
 
 import math
-
+from pyspark import SparkContext as sc
 
 def word_freq(doc):
     lines = doc.lower().split('\n')
@@ -39,5 +39,5 @@ tf = corpus.map(lambda x: (x[0].split('/')[-1],
                            word_freq(x[1]))).flatMap(word_to_key)
 idf = tf.map(lambda x: (x[0], 1)).reduceByKey(
     lambda x, y: x+y).map(lambda x: (x[0], math.log(num_docs/x[1])))
-sorted(tf.join(idf).map(lambda x: (
-    x[0], (x[1][0][0], x[1][0][1]*x[1][1]))).collect())
+tf.join(idf).map(lambda x: (
+    x[0], (x[1][0][0], x[1][0][1]*x[1][1]))).collect()
