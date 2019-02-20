@@ -32,7 +32,7 @@ def word_to_key(x):
     return l
 
 
-corpus = sc.wholeTextFiles('/user/hadoop/tfidf/texts/*')
+corpus = sc.wholeTextFiles('/user/hadoop/tfidf/input/*.txt')
 num_docs = corpus.count()
 
 tf = corpus.map(lambda x: (x[0].split('/')[-1],
